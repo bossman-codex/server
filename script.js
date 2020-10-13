@@ -28,7 +28,7 @@ app.use(BodyParser.json())
 app.use(cors())
     
 app.get('/' , (req , res) =>  {
-    res.send(admin.user)
+    res.send("its working")
 })
 
 app.post ('/signin', (req,res) => {
@@ -147,4 +147,6 @@ let searchData = (req, res) => {
 }
 
 
-app.listen(process.env.PORT || 3030) 
+app.listen(process.env.PORT || 3030, function() {
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+})
