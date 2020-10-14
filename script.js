@@ -131,22 +131,7 @@ app.post('/addcert', (req, res)=>{
 })
 
 
-let searchData = (req, res) => {
-    search = req.query.search
-    console.log(search)
-    var searchEmployees = `SELECT * FROM employees WHERE (employeeNo LIKE '%${search}%' OR name LIKE '%${search}%' OR email LIKE '%${search}%' OR contact LIKE '%${search}%') AND isDeleted='0' `
-    //searchValues = [search,search,search,search]
-    console.log(searchEmployees)
-    db.query(searchEmployees, function (errQuery, resQuery) {
-        if (errQuery) {
-            res.send(errQuery)
-        } else {
-            res.send(resQuery)
-        }
-    })
-}
 
-
-app.listen(process.env.PORT || 3030, function() {
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(process.env.PORT || 3030)
+    
 })
